@@ -30,7 +30,7 @@ public class IS_CameraLook : MonoBehaviour
         _xRotation -= dtY;
         _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
         
-        transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
+        transform.localRotation = Quaternion.Euler(_xRotation, 0.0f, 0f);
         _playerBody.transform.Rotate(Vector3.up * dtX);
     }
 }

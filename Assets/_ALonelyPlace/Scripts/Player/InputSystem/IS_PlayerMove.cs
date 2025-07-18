@@ -15,18 +15,18 @@ public class IS_PlayerMove : MonoBehaviour
     }
     
     //動き - ugoki (move)
-    public void Move(Vector3 input, bool isRunning)
+    public void Move(Vector2 input, bool isRunning)
     {
         if (!isRunning)
         {
             //歩く　- aruku (walk)
-            Vector3 move = transform.right * input.x + transform.forward * input.z;
+            Vector3 move = transform.right * input.x + transform.forward * input.y;
             _characterController.Move( move * (_walkSpeed * Time.deltaTime)); 
         }
         else
         {
             //走る - hashiru (run)
-            Vector3 move = transform.right * input.x + transform.forward * input.z;
+            Vector3 move = transform.right * input.x + transform.forward * input.y;
             _characterController.Move( move * (_runSpeed * Time.deltaTime));
         }
     }
