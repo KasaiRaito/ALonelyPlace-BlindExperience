@@ -2,10 +2,15 @@ using UnityEngine;
 
 public class IS_CameraLook : MonoBehaviour
 {
-    private float _xRotation = 0.0f;
+    private float _xRotation;
     private float _rotationSpeed;
     private GameObject _playerBody;
 
+    void Start()
+    {
+        _xRotation = transform.localRotation.eulerAngles.x;
+    }
+    
     public void SetSpeed(float speed)
     {
         _rotationSpeed = speed;
@@ -28,7 +33,7 @@ public class IS_CameraLook : MonoBehaviour
         var dtY = input.y * _rotationSpeed * Time.deltaTime;
 
         _xRotation -= dtY;
-        _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
+        _xRotation = Mathf.Clamp(_xRotation, -90f, 55f);
         
         transform.localRotation = Quaternion.Euler(_xRotation, 0.0f, 0f);
         _playerBody.transform.Rotate(Vector3.up * dtX);

@@ -9,6 +9,8 @@ public class Tile : MonoBehaviour
     public float timer;
 
     private bool _active;
+    [SerializeField] private bool safe;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -45,6 +47,14 @@ public class Tile : MonoBehaviour
         if (other.CompareTag("Cane"))
         {
             ActivateTile();
+        }
+        else if (!safe)
+        {
+            if(other.CompareTag("Player"))
+            {
+                Debug.Log("Player fell");
+                // Implement player fall logic here
+            }
         }
         else
         {

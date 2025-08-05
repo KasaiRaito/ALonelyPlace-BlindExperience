@@ -33,11 +33,6 @@ public class PlayerCore : MonoBehaviour
         playerMove.SetSpeeds(walk, run);
     }
 
-    void Update()
-    {
-        
-    }
-
     // Update is called once per frame
     void FixedUpdate()
     {
